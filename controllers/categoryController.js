@@ -3,9 +3,9 @@ import AppError from '../errors/AppError';
 
 const logger = require('../utils/logger')('categoryController');
 
-const getCategoryById = async (req, res) => {
-  logger.log('debug', 'getCategory: %j', req.body);
-  const category = await CategoryModel.getCategoryById(req.params.categoryId);
+const getCategoryByUrlId = async (req, res) => {
+  logger.log('debug', 'getCategoryByUrlId: %j', req.body);
+  const category = await CategoryModel.getCategoryByUrlId(req.params.urlId);
   res.status(200).send({ payload: { category } });
 };
 
@@ -20,13 +20,12 @@ const addCategory = async (req, res) => {
   await CategoryModel.save({
     name: req.body.name,
     description: req.body.description,
-    imagePath: req.params.imagePath,
-    urlId: req.params.urlId,
-
+    imagePath: req.body.imagePath,
+    urlId: req.body.urlId,
   }).catch(error => {
     throw new AppError(error.message, 400);
   });
   res.status(201).send();
 };
 
-export { getCategoryById, getCategories, addCategory };
+export { getCategories, addCategory, getCategoryByUrlId };

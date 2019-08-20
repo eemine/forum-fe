@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "29bd0ce1-1fd6-4ded-8b0d-68ef7798780b",
+		"name": "Forum API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "GetCategories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Pets and Animals\",\n\t\"description\": \"Discussing everything that is related to Pets and Animals\",\n\t\"imagePath\": \"\",\n\t\"urlId\": \"animals\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCategoryByUrlId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/categories/animals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"animals"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topics",
+			"item": [
+				{
+					"name": "GetTopics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/topics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"topics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddTopic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Lost and Found Pets\",\n\t\"categoryId\": \"5d5bb19f78dde915e09c1ace\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/topics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"topics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTopicById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/topics/5d5be73ada2b371bebfed259",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"topics",
+								"5d5be73ada2b371bebfed259"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTopicComments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/topics/5d5be73ada2b371bebfed259/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"topics",
+								"5d5be73ada2b371bebfed259",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddTopicComment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{boot_login}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"Looking for cats\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/topics/5d5be73ada2b371bebfed259/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"topics",
+								"5d5be73ada2b371bebfed259",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"amina\",\n\t\"email\": \"amina@email.com\",\n\t\"password\": \"123456\",\n\t\"firstName\": \"Amina\",\n\t\"lastName\": \"Rahimli\",\n\t\"imagePath\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30634855-169b-4830-8c1f-40a9e66cdce9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Token exist\", function () {",
+							"    pm.expect(jsonData.message).to.eql('Successfully loged in');",
+							"    pm.expect(jsonData).to.have.property('data');",
+							"});",
+							"",
+							"pm.environment.set(\"boot_login\", jsonData.payload.token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"amina\",\n    \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

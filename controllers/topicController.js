@@ -1,4 +1,3 @@
-import * as CategoryModel from '../models/CategoryModel';
 import * as TopicModel from '../models/TopicModel';
 
 const logger = require('../utils/logger')('topicController');
@@ -6,11 +5,10 @@ const logger = require('../utils/logger')('topicController');
 const addTopic = async (req, res) => {
   logger.log('info', 'addTopic: %j', req.body);
   const { user } = req;
-  const { _id: categoryId } = await CategoryModel.getCategoryByUrlId(req.body.urlId);
   const topic = await TopicModel.save({
     title: req.body.title,
     userId: user._id,
-    categoryId,
+    categoryId: req.body.categoryId,
   });
   res.status(200).send({ payload: topic });
 };

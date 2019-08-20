@@ -15,7 +15,6 @@ const addTopicComment = async (req, res) => {
     userId: req.user._id,
     text: req.body.text,
     topicId: req.params.topicId,
-
   }).catch(error => {
     throw new AppError(error.message, 400);
   });

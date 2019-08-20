@@ -3,16 +3,19 @@ import session from 'express-session';
 import mongo from 'connect-mongo';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import './utils/dotenv';
 import topics from './routes/topic';
 import categories from './routes/category';
+import users from './routes/user';
+import auth from './routes/auth';
+import authenticate from './middlewares/authenticate';
+import './utils/dotenv';
 
 const logger = require('./utils/logger')('server');
 
 const app = express();
 
 const MongoStore = mongo(session);
-mongoose.Promise = global.Promise; // Use native promises - http://mongoosejs.com/docs/promises.html
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('error', () => {
   logger.log('error', 'MongoDB connection error. Please make sure MongoDB is running.');
@@ -34,12 +37,10 @@ app.use(
   }),
 );
 
-app.use(`/api/v${process.env.API_VERSION}/topics`, topics);
-app.use(`/api/v${process.env.API_VERSION}/categories`, categories);
-
-app.get('/', function (req, res) {
-  res.send('Hello World')
-});
+app.use(`/api/v${process.env.API_VERSION}/auth`, auth);
+app.use(`/api/v${process.env.API_VERSION}/topics`, authenticate, topics);
+app.use(`/api/v${process.env.API_VERSION}/categories`, authenticate, categories);
+app.use(`/api/v${process.env.API_VERSION}/users`, users);
 
 const host = process.env[`HOST_${process.platform.toUpperCase()}`];
 const port = process.env.PORT || process.env.HOST_PORT;

@@ -13,6 +13,6 @@ const CommentModel = mongoose.model('Comment', commentSchema);
 
 const save = async model => new CommentModel(model).save();
 
-const getCommentsByTopicId = async mediaId => CommentModel.find({ mediaId });
+const getCommentsByTopicId = async topicId => CommentModel.find({ topicId });
 
 export { commentSchema, getCommentsByTopicId, save };

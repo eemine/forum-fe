@@ -18,10 +18,8 @@ const save = async model => new CategoryModel(model).save();
 
 const getCategories =  async () => CategoryModel.find();
 
-const getCategoryById = async (topicId) => CategoryModel.findOne({_id: topicId});
-
 CategoryModel.schema
   .path('urlId')
   .validate(async urlId => !(await getCategoryByUrlId(urlId)), 'UrlId already exists!');
 
-export { categorySchema, getCategoryByUrlId, save, getCategoryById, getCategories };
+export { categorySchema, getCategoryByUrlId, save, getCategories };
