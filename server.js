@@ -3,6 +3,7 @@ import session from 'express-session';
 import mongo from 'connect-mongo';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import topics from './routes/topic';
 import categories from './routes/category';
 import users from './routes/user';
@@ -22,6 +23,8 @@ mongoose.connection.on('error', () => {
   process.exit();
 });
 mongoose.connection.once('open', () => logger.log('info', 'MongoDB has been connected.'));
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
