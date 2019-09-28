@@ -13,16 +13,16 @@ const addTopic = async (req, res) => {
   res.status(200).send({ payload: topic });
 };
 
-const getTopics = async (req, res) => {
-  logger.log('info', 'getTopics: %j', req.body);
-  const topics = await TopicModel.getTopics();
+const getTopicsByCategoryId = async (req, res) => {
+  logger.log('info', 'getTopicsByCategoryId: %j', req.params);
+  const topics = await TopicModel.getTopicsByCategoryId(req.params.categoryId);
   res.status(200).send({ payload: topics || [] });
 };
 
 const getTopicById = async (req, res) => {
-  logger.log('info', 'getTopicById: %j', req.body);
+  logger.log('info', 'getTopicById: %j', req.params);
   const topic = await TopicModel.getTopicById(req.params.topicId);
   res.status(200).send({ payload: topic });
 };
 
-export { addTopic, getTopics, getTopicById }
+export { addTopic, getTopicsByCategoryId, getTopicById };

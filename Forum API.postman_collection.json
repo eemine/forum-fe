@@ -115,14 +115,9 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Topics",
-			"item": [
+				},
 				{
-					"name": "GetTopics",
+					"name": "GetTopicsByCategoryId",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -138,7 +133,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3001/api/v1/topics",
+							"raw": "http://localhost:3001/api/v1/categories/5d5bb19f78dde915e09c1ace/topics",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -147,12 +142,19 @@
 							"path": [
 								"api",
 								"v1",
+								"categories",
+								"5d5bb19f78dde915e09c1ace",
 								"topics"
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Topics",
+			"item": [
 				{
 					"name": "AddTopic",
 					"request": {
@@ -314,7 +316,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"username\": \"amina\",\n\t\"email\": \"amina@email.com\",\n\t\"password\": \"123456\",\n\t\"firstName\": \"Amina\",\n\t\"lastName\": \"Rahimli\",\n\t\"imagePath\": \"\"\n}"
+							"raw": "{\n\t\"username\": \"amina\",\n\t\"email\": \"amina@email.com\",\n\t\"password\": \"123456\",\n\t\"firstName\": \"Amina\",\n\t\"lastName\": \"Rahimli\",\n\t\"gender\": \"female\",\n\t\"imagePath\": \"\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3001/api/v1/users/register",

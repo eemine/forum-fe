@@ -1,10 +1,10 @@
-import * as UserModel from "../models/UserModel";
-import AppError from "../errors/AppError";
+import * as UserModel from '../models/UserModel';
+import AppError from '../errors/AppError';
 
 const logger = require('../utils/logger')('userController');
 
 const getUserInfo = async (req, res) => {
-  logger.log('debug', 'logIn: %j', req.body);
+  logger.log('debug', 'logIn: %j', req.user);
   const { user } = req;
   res.status(200).send({
     payload: {

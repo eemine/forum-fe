@@ -4,8 +4,8 @@ const categorySchema = new mongoose.Schema(
   {
     name: { type: String, trim: true, required: true },
     description: { type: String, trim: true },
-    imagePath:  { type: String },
-    urlId: { type: String, trim: true, unique: true }
+    imagePath: { type: String },
+    urlId: { type: String, trim: true, unique: true },
   },
   { timestamps: true },
 );
@@ -16,7 +16,7 @@ const getCategoryByUrlId = async urlId => CategoryModel.findOne({ urlId });
 
 const save = async model => new CategoryModel(model).save();
 
-const getCategories =  async () => CategoryModel.find();
+const getCategories = async () => CategoryModel.find();
 
 CategoryModel.schema
   .path('urlId')

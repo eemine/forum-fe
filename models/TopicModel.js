@@ -13,8 +13,8 @@ const TopicModel = mongoose.model('Topic', topicSchema);
 
 const save = async model => new TopicModel(model).save();
 
-const getTopics =  async () => TopicModel.find();
+const getTopicsByCategoryId = async categoryId => TopicModel.find({ categoryId });
 
-const getTopicById = async (topicId) => TopicModel.findOne({_id: topicId});
+const getTopicById = async topicId => TopicModel.findOne({ _id: topicId });
 
-export { topicSchema, save, getTopics, getTopicById };
+export { topicSchema, save, getTopicsByCategoryId, getTopicById };
